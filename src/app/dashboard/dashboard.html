@@ -1,0 +1,195 @@
+<div class="dashboard-container">
+
+  <header class="dashboard-header">
+
+    <div>
+      <h1>Dashboard</h1>
+      <p>User Management Portal</p>
+    </div>
+
+    <button
+      class="logout-btn"
+      (click)="logout()">
+      Logout
+    </button>
+
+  </header>
+
+  <section class="user-card">
+
+    <h2>Welcome!</h2>
+
+    <div class="user-info">
+
+      <div>
+        <span>User ID</span>
+        <strong>{{ user?.userId }}</strong>
+      </div>
+
+      <div>
+        <span>Name</span>
+        <strong>{{ user?.name }}</strong>
+      </div>
+
+      <div>
+        <span>Role</span>
+        <strong>{{ user?.role }}</strong>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section
+    class="admin-section"
+    *ngIf="user?.role === 'Admin'">
+
+    <h2>Manage Users</h2>
+
+    <div class="add-user-form">
+
+      <div class="form-group">
+
+        <label>User ID</label>
+
+        <input
+          type="text"
+          name="newUserId"
+          [(ngModel)]="newUser.userId"
+          placeholder="Enter User ID">
+
+      </div>
+
+      <div class="form-group">
+
+        <label>Name</label>
+
+        <input
+          type="text"
+          name="newUserName"
+          [(ngModel)]="newUser.name"
+          placeholder="Enter Name">
+
+      </div>
+
+      <div class="form-group">
+
+        <label>Password</label>
+
+        <input
+          type="password"
+          name="newUserPassword"
+          [(ngModel)]="newUser.password"
+          placeholder="Enter Password">
+
+      </div>
+
+      <div class="form-group">
+
+        <label>Role</label>
+
+        <select
+          name="newUserRole"
+          [(ngModel)]="newUser.role">
+
+          <option value="General User">
+            General User
+          </option>
+
+          <option value="Admin">
+            Admin
+          </option>
+
+        </select>
+
+      </div>
+
+      <button
+        type="button"
+        (click)="addUser()">
+
+        Add User
+
+      </button>
+
+    </div>
+
+    <p
+      *ngIf="adminMessage"
+      class="admin-message">
+
+      {{ adminMessage }}
+
+    </p>
+
+  </section>
+
+  <section class="records-section">
+
+    <h2>User Records</h2>
+
+    <div
+      *ngIf="isLoading"
+      class="loading">
+
+      Loading user records...
+
+    </div>
+
+    <table
+      *ngIf="!isLoading && records.length > 0">
+
+      <thead>
+
+        <tr>
+
+          <th>User ID</th>
+          <th>Name</th>
+          <th>Role</th>
+          <th *ngIf="user?.role === 'Admin'">Actions</th>
+
+        </tr>
+
+      </thead>
+
+
+      <tbody>
+
+        <tr *ngFor="let record of records">
+
+          <td>{{ record.userId }}</td>
+
+          <td>{{ record.name }}</td>
+
+          <td>{{ record.role }}</td>
+
+          <td>{{ record.accessLevel }}</td>
+
+          <td *ngIf="user?.role === 'Admin'">
+
+  <button
+    class="delete-btn"
+    (click)="deleteUser(record.userId)">
+
+    Delete
+
+  </button>
+
+</td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+    <p
+      *ngIf="!isLoading && records.length === 0">
+
+      No user records found.
+
+    </p>
+
+  </section>
+
+</div>
