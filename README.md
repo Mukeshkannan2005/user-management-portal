@@ -1,59 +1,155 @@
-# UserManagementPortal
+# User Management Portal
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.1.
+A full-stack web application built using Angular, Node.js, TypeScript, Express.js, and MongoDB. The application provides role-based login and user management features through a responsive dashboard.
 
-## Development server
+## Project Overview
 
-To start a local development server, run:
+The User Management Portal allows users to log in based on their assigned role. General Users can view their permitted user records, while Administrators can manage user accounts through the dashboard.
+
+This project demonstrates frontend development, REST API integration, database operations, asynchronous data loading, and modular application architecture.
+
+## Features
+
+- **Role-Based Login:** Separate access for Admin and General Users.
+- **User Dashboard:** Displays user information and records.
+- **User Management:** Administrators can add and delete user records.
+- **REST API Integration:** Connects the Angular frontend to the Node.js backend.
+- **MongoDB Database:** Stores user information.
+- **Password Hashing:** Uses bcrypt for password hashing and comparison.
+- **Role-Based Filtering:** Retrieves records according to the requested user role and ID.
+- **Asynchronous Data Loading:** Supports configurable API response delays.
+- **Responsive Interface:** Login page and dashboard with custom CSS styling.
+
+## Technologies Used
+
+| Category | Technologies |
+|---|---|
+| Frontend | Angular, HTML, CSS, TypeScript |
+| Backend | Node.js, Express.js, TypeScript |
+| Database | MongoDB |
+| API | REST API, HTTP requests |
+| Security | bcrypt password hashing |
+| Development Tools | Visual Studio Code, Git, GitHub |
+
+## Project Structure
+
+```text
+user-management-portal/
+├── backend/
+│   ├── src/
+│   │   ├── models/
+│   │   │   └── user.ts
+│   │   └── server.ts
+│   ├── package.json
+│   └── tsconfig.json
+├── public/
+├── src/
+│   ├── app/
+│   │   ├── login/
+│   │   ├── dashboard/
+│   │   └── services/
+│   ├── index.html
+│   ├── main.ts
+│   └── styles.css
+├── angular.json
+├── package.json
+└── README.md
+```
+
+## Prerequisites
+
+Install the following before running the application:
+
+- Node.js and npm
+- Angular CLI compatible with the project
+- MongoDB Community Server
+- Git
+
+## Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Mukeshkannan2005/user-management-portal.git
+cd user-management-portal
+```
+
+### 2. Install Frontend Dependencies
+
+```bash
+npm install
+```
+
+### 3. Install Backend Dependencies
+
+```bash
+cd backend
+npm install
+```
+
+### 4. Configure MongoDB
+
+Make sure your MongoDB server is running. The application is configured to use a local MongoDB database.
+
+Verify the database connection settings in the backend source before running the application.
+
+### 5. Start the Backend
+
+From the `backend` directory, run:
+
+```bash
+npx tsx src/server.ts
+```
+
+The backend API runs at:
+
+`http://localhost:3000`
+
+### 6. Start the Angular Frontend
+
+Open another terminal in the project root directory and run:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open the application in your browser:
 
-## Code scaffolding
+`http://localhost:4200`
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## API Endpoints
 
-```bash
-ng generate component component-name
-```
+| Method | Endpoint | Purpose |
+|---|---|---|
+| GET | `/api/health` | Check backend health |
+| POST | `/api/login` | Authenticate login credentials |
+| GET | `/api/users` | Retrieve user records |
+| POST | `/api/users` | Add a user |
+| DELETE | `/api/users/:userId` | Delete a user |
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Learning Outcomes
 
-```bash
-ng generate --help
-```
+- Building an Angular single-page application.
+- Developing REST APIs with Node.js and Express.js.
+- Integrating a frontend with a backend.
+- Performing CRUD operations with MongoDB.
+- Implementing role-based UI behavior and data filtering.
+- Organizing code into reusable services and modules.
 
-## Building
+## Future Improvements
 
-To build the project run:
+- Implement server-side authentication and authorization for all protected API routes.
+- Add token-based authentication and session management.
+- Improve input validation and error handling.
+- Add automated unit and integration tests.
+- Deploy the frontend and backend to cloud hosting.
 
-```bash
-ng build
-```
+## Author
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+**Mukeshkannan**
 
-## Running unit tests
+GitHub: [Mukeshkannan2005](https://github.com/Mukeshkannan2005)
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+---
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This project was developed to practise full-stack web development and build practical software engineering skills.
