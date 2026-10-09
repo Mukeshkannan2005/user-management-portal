@@ -127,6 +127,18 @@ Open the application in your browser:
 | POST | `/api/users` | Add a user |
 | DELETE | `/api/users/:userId` | Delete a user |
 
+## Demo Login Credentials
+
+Use the following demo accounts to explore the application's role-based features.
+
+| Role | User ID | Password |
+|---|---|---|
+| General User | `user001` | `user123` |
+| General User | `user002` | `user456` |
+| Admin | `admin001` | `admin123` |
+
+
+
 ## Learning Outcomes
 
 - Building an Angular single-page application.
