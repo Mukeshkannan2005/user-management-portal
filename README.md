@@ -134,7 +134,6 @@ Use the following demo accounts to explore the application's role-based features
 | Role | User ID | Password |
 |---|---|---|
 | General User | `user001` | `user123` |
-| General User | `user002` | `user456` |
 | Admin | `admin001` | `admin123` |
 
 
